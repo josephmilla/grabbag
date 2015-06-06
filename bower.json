@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.4",
-    "bootstrap-social": "~4.9.0"
+    "bootstrap-social": "~4.9.0",
+    "jquery-ui": "~1.11.4"
   }
 }
