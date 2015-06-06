@@ -28,8 +28,9 @@ angular.module('grabbagApp')
 
     $http({
       method: 'GET',
-      url: 'http://access.alchemyapi.com/calls/text/TextGetTextSentiment?apikey=6c3f7de7adae065674ccce9289e1a2930fc4c74f',
+      url: 'http://access.alchemyapi.com/calls/text/TextGetTextSentiment',
       params: {
+        apikey : '6c3f7de7adae065674ccce9289e1a2930fc4c74f',
         text: 'Fuck you motherfucker',
         outputMode: 'json',
         showSourceText: 1
