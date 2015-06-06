@@ -2,7 +2,7 @@ var query = 'Fuck this shit you motherfucker';
 
 $.ajax({
   url: 'http://access.alchemyapi.com/calls/text/TextGetTextSentiment',
-  type: 'GET', //send it through get method
+  type: 'GET',
   data:{
     apikey : '6c3f7de7adae065674ccce9289e1a2930fc4c74f',
     text: query,
@@ -25,7 +25,7 @@ $.ajax({
 
 $.ajax({
   url: 'http://api.globalhack4.test.lockerdome.com/app_create_content',
-  type: 'GET', //send it through get method
+  type: 'GET',
   data:{
     'app_id': '7741755390689346',
     'app_secret': '9EidDhiKHHK5sCCfIvkewnMWcifb0SGS362BKffRA29v/vkTm8CzsydQb2I+5ORMtFOHMsmkZLqtwc2uN/dC2g==',
