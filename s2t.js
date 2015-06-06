@@ -1,4 +1,3 @@
-<script>
 var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
@@ -135,9 +134,4 @@ function showButtons(style) {
   if (style == current_style) {
     return;
   }
-  current_style = style;
-  copy_button.style.display = style;
-  email_button.style.display = style;
-  copy_info.style.display = 'none';
 }
-</script>
