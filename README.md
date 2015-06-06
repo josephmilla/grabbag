@@ -9,17 +9,7 @@ We needz that $35,000
 
 ```
 // Install Dependencies
-$ npm install
 $ bower install
-
-// Make sure you have MongoDB running
-$ mkdir data
-$ cd data
-$ mkdir db
-$ mongodb --dbpath db
-
-// Run
-$ grunt serve
 ```
 
 ## Server Information
