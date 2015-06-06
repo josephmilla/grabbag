@@ -1,2 +1,2 @@
-# grab-bag
+# Grabbag
 GlobalHacks 2015 Entry
