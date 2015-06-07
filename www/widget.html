@@ -16,8 +16,13 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <style>
+      * {
+        -webkit-font-smoothing: antialiased;
+      }
+
       html,
       body {
+        font-family: 'Open Sans', sans-serif;
         overflow: hidden;
         height: 100%;
         padding: 3px;
@@ -37,6 +42,33 @@
 
       .badge {
         padding: 5px 7px;
+        cursor: pointer;
+      }
+
+      .badge:focus,
+      .badge:hover {
+        opacity: 0.75;
+      }
+
+      .badge:active {
+        opacity: 0.90;
+      }
+
+      .header {
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .content {
+        font-family: 'Roboto', sans-serif;
+        display: block;
+        font-size: 64px;
+        font-weight: 100;
+      }
+
+      .sub-content {
+        font-weight: 700;
+        float: right;
       }
     </style>
   </head>
@@ -54,6 +86,17 @@
           <span class="glyphicon glyphicon-facetime-video"></span>
         </span>
       </div>
+
+      <span class="header">NewsFeed</h1>
+
+      <span class="content">"Boom. Boom. Pow."</span>
+      <span class="sub-content">- Plato, 1669</span>
+
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
