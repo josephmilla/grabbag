@@ -76,32 +76,90 @@
       .panel-title {
         font-weight: 700;
       }
+
+      .row {
+        padding-top: 50px;
+      }
+
+      .gh-generated {
+        margin: 20px 0;
+        height: 200px !important;
+        font-family: 'Consolas', monospace;
+      }
+
+      .form-elm {
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 4px;
+        border: 1px solid #bdc3c7;
+        outline: none;
+      }
+
+      textarea {
+        width: calc(100% - 25px);
+        resize: vertical;
+      }
+
+      .btn {
+        font-weight: 700;
+        font-size: 11px;
+      }
     </style>
   </head>
 
   <body>
     <div class="container-fluid">
-      <br><br>
-
       <div class="row text-center">
         <h1>GlobalHack 2015 Entry</h1>
         <span class="subtitle">Team Grabbag</span>
       </div>
-
-      <br><br>
 
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <h3 class="panel-title">How it works?</h3>
+              <h3 class="panel-title">Widget</h3>
             </div>
 
             <div class="panel-body">
-              <center>
-                <iframe name="myiframe" src="http://www.xyz.com/index.htm" width="400" height="300" style="border:solid 1px #333333"></iframe>
-              </center>
+              <div class="container-fluid">
+                <center>
+                  <div class="row">
+                      <!-- <iframe name="myiframe" src="http://www.xyz.com/index.htm" width="400" height="300" style="border:solid 1px #333333"></iframe> -->
+                      <iframe name="myiframe" src="widget.html" width="400" height="300" style="border:solid 1px #333333"></iframe>
+                  </div>
+
+                  <div class="row">
+                      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-copy"></span> Copy Data</button>
+                      <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Clear Data</button>
+                  </div>
+
+                  <div class="row">
+                    <textarea class="gh-generated form-elm"></textarea>
+                  </div>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Help</h3>
+            </div>
+
+            <div class="panel-body">
+              <div class="container-fluid">
+                Help yo self
+
+
+              </div>
             </div>
           </div>
         </div>
