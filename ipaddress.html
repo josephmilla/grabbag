@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+	
+<html>
+	<body>
+
+	</body>
+</html>
+
+<script type="text/javascript">
+  var userip;
+</script>
+
+<script type="text/javascript" src="http://l2.io/ip.js?var=userip"></script>
+
+<script type="text/javascript">
+  /*
+  function IsJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+	}
+  var bool = IsJsonString(jsonString);
+  document.write("IsJsonString?",bool);
+  */
+
+  // formats as JSON 
+  var jsonIP = JSON.stringify(userip);
+  var jsonString = '{ "IP":'+"\""+userip+"\""+'}'; // send this bad boy 
+  //document.write("test",jsonString);
+</script>
