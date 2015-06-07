@@ -34,7 +34,13 @@
         position: relative;
       }
 
-      .controls {
+      .controls-left {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+
+      .controls-right {
         position: absolute;
         bottom: 0;
         right: 0;
@@ -75,7 +81,16 @@
 
   <body>
     <div class="wrapper">
-      <div class="controls">
+      <div class="controls-left">
+        <span class="badge">
+          <span class="glyphicon glyphicon-menu-left"></span>
+        </span>
+        <span class="badge">
+          <span class="glyphicon glyphicon-menu-right"></span>
+        </span>
+      </div>
+
+      <div class="controls-right">
         <span class="badge">
           <span class="glyphicon glyphicon-comment"></span>
         </span>
@@ -91,12 +106,6 @@
 
       <span class="content">"Boom. Boom. Pow."</span>
       <span class="sub-content">- Plato, 1669</span>
-
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-      </ol>
     </div>
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
