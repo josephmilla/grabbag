@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css">
+    <link rel="stylesheet" href="bower_components/spectrum/spectrum.css">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <style>
@@ -141,14 +142,18 @@
               <div class="container-fluid">
                 <center>
                   <div class="row">
-                      <!-- <iframe name="myiframe" src="http://www.xyz.com/index.htm" width="400" height="300" style="border:solid 1px #333333"></iframe> -->
-                      <iframe name="myiframe" src="widget.html" width="400" height="300" style="border:solid 1px #333333"></iframe>
+                    <!-- <iframe name="myiframe" src="http://www.xyz.com/index.htm" width="400" height="300" style="border:solid 1px #333333"></iframe> -->
+                    <iframe name="myiframe" src="widget.html" width="400" height="300" style="border:solid 1px #333333"></iframe>
                   </div>
 
                   <div class="row">
-                      <button type="button" class="btn btn-primary" onclick="generate()"><span class="glyphicon glyphicon-copy"></span> Generate Data</button>
-                      <button type="button" class="btn btn-success" onclick="copy()"><span class="glyphicon glyphicon-copy"></span> Copy Data</button>
-                      <button type="button" class="btn btn-danger" onclick="erase()"><span class="glyphicon glyphicon-trash"></span> Clear Data</button>
+                    <input type="text" id="flatClearable" />
+                  </div>
+
+                  <div class="row">
+                    <button type="button" class="btn btn-primary" onclick="generate()"><span class="glyphicon glyphicon-copy"></span> Generate Data</button>
+                    <button type="button" class="btn btn-success" onclick="copy()"><span class="glyphicon glyphicon-copy"></span> Copy Data</button>
+                    <button type="button" class="btn btn-danger" onclick="erase()"><span class="glyphicon glyphicon-trash"></span> Clear Data</button>
                   </div>
 
                   <div class="row">
@@ -214,6 +219,7 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/spectrum/spectrum.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/s2t.js"></script>
     <!--<script src="assets/js/data.js"></script>-->
@@ -232,6 +238,18 @@
         $("#tarea").val('');
         console.log("Cleared Data");
       }
+
+      $("#flatClearable").spectrum({
+        preferredFormat: "hex",
+        flat: true,
+        showInput: true,
+        allowEmpty: true,
+        move: function(color) {
+          color.toHexString(); // #ff0000
+          console.log(color.toHexString());
+          $("iframe").css("background-color", color.toHexString());
+        }
+      });
     </script>
   </body>
 </html>

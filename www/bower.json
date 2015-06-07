@@ -16,6 +16,7 @@
   "dependencies": {
     "bootstrap": "~3.3.4",
     "bootstrap-social": "~4.9.0",
-    "jquery-ui": "~1.11.4"
+    "jquery-ui": "~1.11.4",
+    "spectrum": "~1.7.0"
   }
 }
