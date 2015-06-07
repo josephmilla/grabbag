@@ -146,13 +146,13 @@
                   </div>
 
                   <div class="row">
-                      <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-copy"></span> Generate Data</button>
-                      <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-copy"></span> Copy Data</button>
-                      <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Clear Data</button>
+                      <button type="button" class="btn btn-primary" onclick="generate()"><span class="glyphicon glyphicon-copy"></span> Generate Data</button>
+                      <button type="button" class="btn btn-success" onclick="copy()"><span class="glyphicon glyphicon-copy"></span> Copy Data</button>
+                      <button type="button" class="btn btn-danger" onclick="erase()"><span class="glyphicon glyphicon-trash"></span> Clear Data</button>
                   </div>
 
                   <div class="row">
-                    <textarea class="gh-generated form-elm"></textarea>
+                    <textarea id="tarea" class="gh-generated form-elm">Test</textarea>
                   </div>
                 </center>
               </div>
@@ -216,8 +216,22 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/s2t.js"></script>
-    <script src="assets/js/data.js"></script>
+    <!--<script src="assets/js/data.js"></script>-->
     <script>
+      function generate() {
+        // Default
+        $("#tarea").val("<iframe name='myiframe' src='widget.html' width='400' height='300' style='border:solid 1px #333333'></iframe>");
+        console.log("Generated Data");
+      }
+
+      function copy() {
+        console.log("Copied Data");
+      }
+
+      function erase() {
+        $("#tarea").val('');
+        console.log("Cleared Data");
+      }
     </script>
   </body>
 </html>
