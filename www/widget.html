@@ -65,14 +65,14 @@
         font-weight: 700;
       }
 
-      .content {
+      #content {
         font-family: 'Roboto', sans-serif;
         display: block;
         font-size: 64px;
         font-weight: 100;
       }
 
-      .sub-content {
+      #sub-content {
         font-weight: 700;
         float: right;
       }
@@ -91,10 +91,10 @@
   <body>
     <div class="wrapper">
       <div class="controls-left">
-        <span class="badge">
+        <span id="prev" class="badge" onclick="prev()">
           <span class="glyphicon glyphicon-menu-left"></span>
         </span>
-        <span class="badge">
+        <span id="next" class="badge" onclick="next()">
           <span class="glyphicon glyphicon-menu-right"></span>
         </span>
       </div>
@@ -113,8 +113,8 @@
 
       <span class="header">NewsFeed</h1>
 
-      <span class="content">"Boom. Boom. Pow."</span>
-      <span class="sub-content">- Plato, 1669</span>
+      <span id="content">"Boom. Boom. Pow."</span>
+      <span id="sub-content">- Plato, 1669</span>
 
       <!-- Modal -->
       <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -179,6 +179,24 @@
     <script src="assets/js/s2t.js"></script>
     <!--<script src="assets/js/data.js"></script>-->
     <script>
+      var texts = ['Boom. Boom. Pow.', 'Lolz', 'Shut up', 'Heeeey yaaa'];
+      var i = 0;
+
+      function next() {
+        i = i + 1;
+        i > texts.length ? i = texts.length : i = i;
+        $("#content").text(texts[i]);
+        console.log(texts[i]);
+        console.log("Next has been selected");
+      }
+
+      function prev() {
+        i = i - 1;
+        i < texts.length ? i = 0 : i = i;
+        $("#content").text(texts[i]);
+        console.log(texts[i]);
+        console.log("Previous has been selected");
+      }
     </script>
   </body>
 </html>
