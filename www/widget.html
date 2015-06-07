@@ -34,6 +34,15 @@
         position: relative;
       }
 
+      .sentiment-score {
+        float: right;
+      }
+
+      #score-badge {
+        background-color: #f0ad4e;
+        cursor: default !important;
+      }
+
       .controls-left {
         position: absolute;
         bottom: 0;
@@ -90,6 +99,12 @@
 
   <body>
     <div class="wrapper">
+      <div class="sentiment-score">
+        <span id="score-badge" class="badge">
+          69
+        </span>
+      </div>
+
       <div class="controls-left">
         <span id="prev" class="badge" onclick="prev()">
           <span class="glyphicon glyphicon-menu-left"></span>
@@ -111,7 +126,7 @@
         </span>
       </div>
 
-      <span class="header">NewsFeed</h1>
+      <span class="header">NewsFeed</span>
 
       <span id="content">"Boom. Boom. Pow."</span>
       <span id="sub-content">- Plato, 1669</span>
