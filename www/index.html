@@ -120,6 +120,26 @@
         font-weight: 700;
         font-size: 11px;
       }
+
+      .sp-input {
+        font-family: 'Consolas', monospace !important;
+      }
+
+      .addon-primary {
+        color: #fff;
+        background-color: #337ab7;
+        border-color: #2e6da4;
+        cursor: pointer;
+      }
+
+      .addon-primary:hover,
+      .addon-primary:focus {
+        opacity: 0.75;
+      }
+
+      .addon-primary:active {
+        opacity: 0.90;
+      }
     </style>
   </head>
 
@@ -142,8 +162,24 @@
               <div class="container-fluid">
                 <center>
                   <div class="row">
+                    <span class="inside-title">Enter the URL you want to analyze</span>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-group">
+                      <span class="input-group-addon">Enter URL</span>
+                      <input id="URLform" type="text" class="form-control" aria-label="Enter URL">
+                      <span class="input-group-addon addon addon-primary" onclick="process()"><span class="glyphicon glyphicon-arrow-right"></span></span>
+                    </div>
+                  </div>
+
+                  <div class="row">
                     <!-- <iframe name="myiframe" src="http://www.xyz.com/index.htm" width="400" height="300" style="border:solid 1px #333333"></iframe> -->
                     <iframe name="myiframe" src="widget.html" width="400" height="300" style="border:solid 1px #333333"></iframe>
+                  </div>
+
+                  <div class="row">
+                    <span class="inside-title">Customize widget</span>
                   </div>
 
                   <div class="row">
@@ -226,18 +262,42 @@
     <script>
       function generate() {
         // Default
-        $("#tarea").val("<iframe name='myiframe' src='widget.html' width='400' height='300' style='border:solid 1px #333333'></iframe>");
-        console.log("Generated Data");
+        $('#tarea').val("<iframe name='myiframe' src='widget.html' width='400' height='300' style='border:solid 1px #333333'></iframe>");
+        console.log('Generated Data');
       }
 
       function copy() {
-        console.log("Copied Data");
+        console.log('Copied Data');
       }
 
       function erase() {
-        $("#tarea").val('');
-        console.log("Cleared Data");
+        $('#tarea').val('');
+        console.log('Cleared Data');
       }
+
+      function process() {
+        console.log($('#URLform').val());
+
+        $.ajax({
+          url: 'http://access.alchemyapi.com/calls/text/URLGetTextSentiment',
+          type: 'GET',
+          data: {
+            url: $('#URLform').val(),
+            apikey: '6c3f7de7adae065674ccce9289e1a2930fc4c74f',
+            outputMode: 'json',
+            showSourceText: 1
+          },
+          success: function(response) {
+            console.log("GET request was successful!");
+            console.log(response);
+          },
+          error: function(xhr) {
+            console.log("GET request wasn't successful");
+          }
+        });
+      }
+
+
 
       $("#flatClearable").spectrum({
         preferredFormat: "hex",
@@ -245,11 +305,20 @@
         showInput: true,
         allowEmpty: true,
         move: function(color) {
-          color.toHexString(); // #ff0000
+          //color.toHexString(); // #ff0000
           console.log(color.toHexString());
-          $("iframe").css("background-color", color.toHexString());
+
+          $('iframe').remove();
+
+          $('iframe').load( function() {
+            $('iframe').contents().find("head").append($("<style type='text/css'>  .wrapper{ background-color:" + color.toHexString() + " none; }  </style>"));
+            // $(".wrapper").css("background-color", color.toHexString());
+            console.log("Woot woot");
+          });
         }
       });
+
+      $(".sp-choose").addClass("btn btn-default")
     </script>
   </body>
 </html>
