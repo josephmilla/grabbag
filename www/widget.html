@@ -197,6 +197,44 @@
         console.log(texts[i]);
         console.log("Previous has been selected");
       }
+
+
+      function get_score(query) {
+
+        var output = ['', '', '', ''];
+        // var language = '';
+        // var score = '';
+        // var type = '';
+        // var text = '';
+
+        $.ajax({
+          url: 'http://access.alchemyapi.com/calls/text/TextGetTextSentiment',
+          type: 'GET',
+          data: {
+            apikey : '6c3f7de7adae065674ccce9289e1a2930fc4c74f',
+            text: query,
+            outputMode: 'json',
+            showSourceText: 1
+          },
+          success: function(response) {
+            console.log("GET request was successful!");
+            console.log(response);
+
+            output[0] = response.language;
+            output[1] = response.docSentiment.score;
+            output[2] = response.docSentiment.type;
+            output[3] = response.text;
+          },
+          error: function(xhr) {
+            console.log("GET request wasn't successful");
+          }
+        });
+
+        return output;
+      }
+
+      console.log(get_score("Fuck you"));
+
     </script>
   </body>
 </html>
