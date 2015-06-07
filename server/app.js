@@ -7,9 +7,10 @@
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-var express = require('express');
+var express  = require('express');
 var mongoose = require('mongoose');
-var config = require('./config/environment');
+var http     = require('http');
+var config   = require('./config/environment');
 
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
@@ -28,6 +29,21 @@ var socketio = require('socket.io')(server, {
 require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
+var alchemy = require('./data').alchemy;
+var locker  = require('./data').locker;
+
+	console.log("alchemy");
+	alchemy.submitQuery("This is really negative and I hate it", http);
+app.route('/api/alchemy')
+.get(function(req, res) {
+	// var body = req.body;
+	// var sentence = body.sentence;
+	// var user     = body.user;
+	console.log("alchemy");
+	alchemy.submitQuery("This is really negative and I hate it", http);
+	// {"sentence" : "Hello", "user" : "Thomas"};
+  // res.sendfile(app.get('appPath') + '/index.html');
+});
 
 // Start server
 server.listen(config.port, config.ip, function () {
@@ -37,19 +53,19 @@ server.listen(config.port, config.ip, function () {
 // Expose app
 exports = module.exports = app;
 
-$.ajax({
-  url: 'http://api.globalhack4.test.lockerdome.com/app_fetch_content',
-  type: 'GET',
-  data:{
-    'app_id': '7742659951067202',
-    'app_secret': 'ACpjPArIwwSfBFAuNBT5iyvubivGFFOTDsuuK4y+hGCiq03zGC659lf9JRpa0SiAiL4yMzKov5Rdvhl1OYi1Eg==',
-    'content_id': 42
-  },
-  success: function(response) {
-    console.log("GET request was successful!");
-    console.log(response);
-  },
-  error: function(xhr) {
-    console.log("GET request wasn't successful");
-  }
-});
+// $.ajax({
+  // url: 'http://api.globalhack4.test.lockerdome.com/app_fetch_content',
+  // type: 'GET',
+  // data:{
+    // 'app_id': '7742659951067202',
+    // 'app_secret': 'ACpjPArIwwSfBFAuNBT5iyvubivGFFOTDsuuK4y+hGCiq03zGC659lf9JRpa0SiAiL4yMzKov5Rdvhl1OYi1Eg==',
+    // 'content_id': 42
+  // },
+  // success: function(response) {
+    // console.log("GET request was successful!");
+    // console.log(response);
+  // },
+  // error: function(xhr) {
+    // console.log("GET request wasn't successful");
+  // }
+// });

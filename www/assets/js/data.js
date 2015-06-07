@@ -2,7 +2,7 @@ var alchemy = {
 	// url  : 'http://access.alchemyapi.com/calls/text/TextGetTextSentiment';
 	key  : '6c3f7de7adae065674ccce9289e1a2930fc4c74f',
 	url  : 'http://access.alchemyapi.com',
-	path : '/calls/text/TextGetTextSentiment';
+	path : '/calls/text/TextGetTextSentiment',
 
 	submitQuery : function(query, http) {
 		var options = {
@@ -54,9 +54,9 @@ var alchemy = {
 var locker = {
 	// url  : 'http://access.alchemyapi.com/calls/text/TextGetTextSentiment';
 	appId  : '7742659951067202',
-	secret : 'ACpjPArIwwSfBFAuNBT5iyvubivGFFOTDsuuK4y+hGCiq03zGC659lf9JRpa0SiAiL4yMzKov5Rdvhl1OYi1Eg==';
+	secret : 'ACpjPArIwwSfBFAuNBT5iyvubivGFFOTDsuuK4y+hGCiq03zGC659lf9JRpa0SiAiL4yMzKov5Rdvhl1OYi1Eg==',
 	url    : 'http://api.globalhack4.test.lockerdome.com',
-	path   : '/app_fetch_content';
+	path   : '/app_fetch_content',
 	submitQuery : function(query, http) {
 		var options = {
 		  host : locker.url,
@@ -82,3 +82,10 @@ var locker = {
 	},
 }
 // 'app_secret': 'ACpjPArIwwSfBFAuNBT5iyvubivGFFOTDsuuK4y+hGCiq03zGC659lf9JRpa0SiAiL4yMzKov5Rdvhl1OYi1Eg==',
+
+
+
+if (module && module.exports) {
+	module.exports.alchemy = alchemy;
+	module.exports.locker  = locker;
+}

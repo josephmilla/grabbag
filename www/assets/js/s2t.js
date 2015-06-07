@@ -81,11 +81,3 @@ function trigger() {
 		speech.start();
 	}
 }
-
-var startButton = document.createElement('input');
-startButton.type = "button";
-document.body.appendChild(startButton);
-startButton.onclick = trigger;
-
-startButton.style.display = 'inline-block'; // remove this and test
-
