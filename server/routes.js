@@ -6,7 +6,7 @@
 
 var errors = require('./components/errors');
 
-module.exports = function(app) {
+module.exports = function(app, http) {
 
   // Insert routes below
   app.use('/api/things', require('./api/thing'));
@@ -22,5 +22,14 @@ module.exports = function(app) {
   app.route('/*')
     .get(function(req, res) {
       res.sendfile(app.get('appPath') + '/index.html');
+    });
+
+  app.route('/api/recording')
+    .post(function(req, res) {
+		var body = req.body;
+		var sentence = body.sentence;
+		var user     = body.user;
+		// {"sentence" : "Hello", "user" : "Thomas"};
+      // res.sendfile(app.get('appPath') + '/index.html');
     });
 };
